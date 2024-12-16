@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Suspense } from "react";
 import { CiStar } from "react-icons/ci";
+import { FaRegThumbsUp } from "react-icons/fa6";
 
 export default function MovieCard({ movie }) {
   return (
@@ -22,22 +22,31 @@ export default function MovieCard({ movie }) {
               movie.backdrop_path || movie.poster_path
             }`}
             fill
-            alt={`${movie.title} movie`}
             className="z-0 object-fill hover:backdrop-blur-lg group-hover:opacity-80 transition-opacity duration-300 ease-in-out"
             placeholder="blur"
             blurDataURL="/loading.svg"
+            alt={`${movie.title} movie's image is not found!`}
           />
         </div>
 
         {/* absolute bottom-0 left-0 right-0 top-[200px] hover:top-[100px] */}
         <div className="px-4 mt-0">
-          <div className="flex items-center gap-2 text-2xl">
+          <div className="flex items-center gap-2 text-xl">
             <CiStar className="bg-yellow-500 bg-" />
             {movie.vote_average}
           </div>
-          <h1 className="text-2xl">{movie.title}</h1>
-          <p>released At:{` ${movie.release_date}`}</p>
-          <p>language : {`${movie.original_language}`}</p>
+          <h1 className="text-xl truncate font-bold">
+            {movie.title || movie.name}
+          </h1>
+          <p className="flex p-0 items-center">
+            {` ${movie.release_date || movie.first_air_date}`}
+            <FaRegThumbsUp className="mx-1 pr-2 pl-2 text-3xl" />
+            {movie.vote_count}
+          </p>
+
+          <p className="truncate p-0 text-[16px]">
+            language : {`${movie.original_language}`}
+          </p>
         </div>
       </Link>
     </div>

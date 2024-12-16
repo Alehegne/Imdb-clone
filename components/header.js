@@ -12,10 +12,14 @@ import ThemeSwitch from "./toggleTheme";
 export default function Header() {
   return (
     <>
-      <header className="sm:mx-14 sm:py-4 sm:px-3 mx-1 px-1 py-4  ">
+      <header className="">
         <nav className="flex justify-between items-center tex-lg sm:mb-4 mb-10">
-          <div className="flex items-center space-x-4">
-            <NavLink href="/" className="hover:bg-gray-300" Icon={AiFillHome}>
+          <div className="flex items-center space-x-4 ml-0">
+            <NavLink
+              href="/"
+              className="hover:bg-gray-300 ml-0 pl-0"
+              Icon={AiFillHome}
+            >
               Home
             </NavLink>
             <NavLink
@@ -37,15 +41,6 @@ export default function Header() {
           </div>
         </nav>
       </header>
-      <div className="flex items-center justify-center w-full mx:0 dark:bg-gray-600 bg-gray-100 py-4 space-x-12">
-        <NavLink href="/trending" Icon={MdOutlineTrendingUp}>
-          Trending
-        </NavLink>
-        <NavLink href="/top_rated" Icon={BsTicketPerforatedFill}>
-          Top Rated
-        </NavLink>
-      </div>
-      <SearchBox />
     </>
   );
 }

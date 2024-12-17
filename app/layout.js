@@ -2,6 +2,7 @@ import Header from "@/components/header";
 import "./globals.css";
 import Providers from "@/components/ThemeProvider";
 import NavBar from "@/components/NavBar";
+import SearchBox from "@/components/searchBox";
 
 export const metadata = {
   title: "IMDB Clone",
@@ -16,7 +17,7 @@ export default function RootLayout({ children }) {
           <div className="  select-none transition-colors duration-500 ease-in-out min-h-screen">
             <Header />
             <NavBar />
-
+            <SearchBox />
             {children}
           </div>
         </Providers>
